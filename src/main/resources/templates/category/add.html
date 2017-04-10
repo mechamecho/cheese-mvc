@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+//4th part
+<form th:object="${category}">
+    <div class="form-group">
+        <label th:for="name">Category Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+        <input type="submit" value="Add Category" />
+    </div>
+</form>
+
+</body>
+</html>
