@@ -1,6 +1,7 @@
 package org.launchcode.models;
 
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Size;
 /**
  * Created by LaunchCode
  */
+
 @Entity
 
 public class Cheese {
@@ -18,6 +20,7 @@ public class Cheese {
     @GeneratedValue
 
     private int id;
+
     @NotNull
     @Size(min=3, max=15)
     private String name;
@@ -28,11 +31,14 @@ public class Cheese {
 
 
 
+
+
     public Cheese(String name, String description) {
         this();
         this.name = name;
         this.description = description;
     }
+
 
 
 
@@ -45,6 +51,7 @@ public class Cheese {
 
     public int getId() {
         return id;
+
     }
 
     public String getName() {
@@ -63,11 +70,13 @@ public class Cheese {
         this.description = description;
     }
 
+
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
+
     }
 }

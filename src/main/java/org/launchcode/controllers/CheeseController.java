@@ -1,5 +1,6 @@
 package org.launchcode.controllers;
 
+
 import org.launchcode.models.Category;
 import org.launchcode.models.Cheese;
 import org.launchcode.models.data.CategoryDao;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+
 import java.util.List;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 
 /**
  * Created by LaunchCode
@@ -25,17 +28,21 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @RequestMapping("cheese")
 public class CheeseController {
 
+
     @Autowired
     private CheeseDao cheeseDao;
 
     @Autowired
     private CategoryDao categoryDao;
 
+
     // Request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model) {
 
+
         model.addAttribute("cheeses", cheeseDao.findAll());
+
         model.addAttribute("title", "My Cheeses");
 
         return "cheese/index";
@@ -46,11 +53,13 @@ public class CheeseController {
         model.addAttribute("title", "Add Cheese");
         model.addAttribute(new Cheese());
         model.addAttribute("categories", categoryDao.findAll());
+
         return "cheese/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@ModelAttribute  @Valid Cheese newCheese,
+
                                        Errors errors, @RequestParam int categoryId, Model model) {
 
         if (errors.hasErrors()) {
@@ -61,25 +70,31 @@ public class CheeseController {
         Category cat=categoryDao.findOne(categoryId);
         newCheese.setCategory(cat);
         cheeseDao.save(newCheese);
+
         return "redirect:";
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.GET)
     public String displayRemoveCheeseForm(Model model) {
+
         model.addAttribute("cheeses", cheeseDao.findAll());
+
         model.addAttribute("title", "Remove Cheese");
         return "cheese/remove";
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
+
     public String processRemoveCheeseForm(@RequestParam int[] ids) {
 
         for (int id : ids) {
             cheeseDao.delete(id);
+
         }
 
         return "redirect:";
     }
+
 
     @RequestMapping(value="category", method=RequestMethod.GET)
     public String category(Model model, @RequestParam int id){
@@ -90,5 +105,6 @@ public class CheeseController {
         model.addAttribute("title", "Cheeses in Category :" +cat.getName());
         return "cheese/index";
     }
+
 
 }
