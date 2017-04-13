@@ -5,6 +5,7 @@ package org.launchcode.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -32,7 +33,6 @@ public class Cheese {
 
 
 
-
     public Cheese(String name, String description) {
         this();
         this.name = name;
@@ -41,6 +41,12 @@ public class Cheese {
 
 
 
+/*
+By setting up the field this way, Hibernate will create a column named
+category_id (based on the field name) and when a Cheese object is
+stored, this column will contain the id of its category object.
+The data for the category object itself will go in the table for the Category class.
+ */
 
     @ManyToOne
     private Category category;
@@ -53,6 +59,10 @@ public class Cheese {
         return id;
 
     }
+
+
+    @ManyToMany(mappedBy = "cheeses")
+//    private List<Menu> menus;
 
     public String getName() {
         return name;

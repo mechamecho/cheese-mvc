@@ -84,8 +84,8 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-
-    public String processRemoveCheeseForm(@RequestParam int[] ids) {
+    //only works when changed to @RequestParam("cheeseIds") int[id] ids, ask Chie
+    public String processRemoveCheeseForm(@RequestParam("cheeseIds") int[] ids) {
 
         for (int id : ids) {
             cheeseDao.delete(id);

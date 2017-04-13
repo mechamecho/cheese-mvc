@@ -9,11 +9,10 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import sun.misc.Request;
+
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by Engineer on 4/10/2017.
@@ -23,6 +22,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value="category")
 public class CategoryController {
+
     @Autowired
     private CategoryDao categoryDao;
 
