@@ -60,9 +60,8 @@ The data for the category object itself will go in the table for the Category cl
 
     }
 
-
     @ManyToMany(mappedBy = "cheeses")
-//    private List<Menu> menus;
+    private List<Menu> menus;
 
     public String getName() {
         return name;
