@@ -4,13 +4,14 @@
 <body>
 <!--second part-->
 <nav th:replace="fragments :: navigation"></nav>
-<ul th:each="menu:${menus}">
-    <a th:href="'/menu/view/' + ${menu.id}">
-        <li th:text="${menu.name}"></li>
-    </a>
+<ul>
+<!--how could we use *{} here? -->
+
+    <li th:each="cheese:${menu.cheeses}"
+        th:text="${cheese.name}" th:value="${cheese.id}"></li>
 </ul>
 
-<a href="/menu/add">Add Menu</a>
+<p><a th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>
 
 
 

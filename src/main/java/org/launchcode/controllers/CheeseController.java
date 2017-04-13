@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 
 
 /**
