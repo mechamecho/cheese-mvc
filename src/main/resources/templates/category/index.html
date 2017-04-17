@@ -3,9 +3,14 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <!--second part-->
-<ul>
-    <li th:each="category:${categories}"
-        th:text="${category.name}"></li>
+<ul th:each="category:${categories}">
+    <a th:href="'/cheese/category/'+ ${category.id}">
+        <li th:text="${category.name}"
+            th:value="${category.id}">
+        </li>
+    </a>
+
+
 </ul>
 
 <a href="/category/add">Add Category</a>

@@ -6,10 +6,10 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <ul>
-    <li th:text="Hard" ahref="category?id=1"></li>
-    <li th:text="soft" ahref="category?id=2"></li>
-    <li th:text="Medium-Hard" ahref="category?id=3"></li>
-    <li th:text="Fake" ahref="category?id=4"></li>
+
+    <li th:each="cheese: ${cheeses}"  th:text="${cheese.name}"></li>
+
+
 </ul>
 
 </body>
